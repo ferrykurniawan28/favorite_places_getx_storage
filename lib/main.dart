@@ -32,20 +32,13 @@ final theme = ThemeData().copyWith(
 
 void main() async {
   await GetStorage.init();
-  runApp(const MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
+  runApp(
+    GetMaterialApp(
       title: 'Great Places',
       debugShowCheckedModeBanner: false,
       theme: theme,
       initialRoute: Pages.home,
       getPages: Routes.pages,
-    );
-  }
+    ),
+  );
 }
