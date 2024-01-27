@@ -1,6 +1,5 @@
 import 'package:favorite_places/controllers/homecontroller.dart';
 import 'package:favorite_places/routes/pages.dart';
-import 'package:favorite_places/screens/addscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,9 +15,7 @@ class HomePage extends GetView<HomeController> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              Get.to(
-                () => const AddScreen(),
-              );
+              Get.toNamed(Pages.add);
             },
           ),
         ],

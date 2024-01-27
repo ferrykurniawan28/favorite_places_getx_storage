@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:favorite_places/controllers/homecontroller.dart';
 import 'package:favorite_places/models/places.dart';
+import 'package:favorite_places/routes/pages.dart';
 import 'package:favorite_places/screens/mapscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -28,7 +28,7 @@ class AddController extends GetxController {
   Key mapKey = UniqueKey();
   final box = GetStorage();
 
-  final homeC = Get.put(HomeController());
+  // final homeC = Get.put(HomeController());
 
   @override
   void dispose() {
@@ -46,9 +46,6 @@ class AddController extends GetxController {
         image: image!,
         location: pickedLocation!,
       );
-      // homeC.data.add(data);
-      // List<Map<String, dynamic>> existingData =
-      //     box.read<List<Map<String, dynamic>>?>('places') ?? [];
       final List<Map<String, dynamic>> dataList =
           (box.read('places') as List?)?.cast<Map<String, dynamic>>() ?? [];
 
@@ -56,7 +53,7 @@ class AddController extends GetxController {
 
       box.write('places', dataList);
 
-      Get.back();
+      Get.offAllNamed(Pages.home);
     }
   }
 
